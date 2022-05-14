@@ -1,0 +1,128 @@
+brainome data/red_3class_balanced.csv -y
+Brainome Table Compiler v1.9-160-prod
+Copyright (c) 2019-2022 Brainome, Inc. All Rights Reserved.
+Licensed to:                 Demo User  (Evaluation)
+Expiration Date:             2022-12-12   223 days left
+Maximum File Size:           100 MB
+Maximum Instances:           20000
+Maximum Attributes:          100
+Maximum Classes:             unlimited
+Connected to:                daimensions.brainome.ai  (local execution)
+
+Command:
+    brainome data/red_3class_balanced.csv -y
+
+Start Time:                 05/03/2022, 23:05 PDT
+
+
+
+Pre-training Measurements
+Data:
+    Input:                      data/red_3class_balanced.csv
+    Target Column:              quality
+    Number of instances:       2232
+    Number of attributes:        13 out of 13
+    Number of classes:            3
+
+Class Balance:                
+                               0: 33.33%
+                               1: 33.33%
+                               2: 33.33%
+
+Learnability:
+    Best guess accuracy:          33.33%
+    Data Sufficiency:             Maybe enough data to generalize. [yellow]
+
+    Capacity Progression           at [ 5%, 10%, 20%, 40%, 80%, 100% ]
+                                       8,   8,   9,   9,  10,  10
+
+                                         RF       NN        DT       SVM
+                                      ------   ------    ------    ------
+    Expected Training Accuracy:      100.00%    ----    100.00%      ----
+    Expected Validation Accuracy:     77.87%    ----     62.32%      ----
+
+Recommendations:
+    If predictor accuracy is insufficient, try using the effort option -e with a value of 5 or more to increase training time. 
+
+
+
+Predictor:                        
+    Classifier Type:              Random Forest
+    System Type:                  3-way classifier
+    Training / Validation Split:  70% : 30%
+    Accuracy:
+      Best-guess accuracy:        33.33%
+      Training accuracy:         100.00% (1560/1560 correct)
+      Validation Accuracy:        85.26% (573/672 correct)
+      Combined Model Accuracy:    95.56% (2133/2232 correct)
+
+
+    Model Capacity (MEC):       130    bits
+    Generalization Ratio:        19.02 bits/bit
+    Percent of Data Memorized:    12.50%
+    Resilience to Noise:          -1.08 dB
+
+
+
+
+    Training Confusion Matrix:
+              Actual | Predicted
+              ------ | ---------
+                   0 |   520     0     0 
+                   1 |     0   520     0 
+                   2 |     0     0   520 
+
+    Validation Confusion Matrix:
+              Actual | Predicted
+              ------ | ---------
+                   0 |   177    43     4 
+                   1 |    35   176    13 
+                   2 |     0     4   220 
+
+    Training Accuracy by Class:
+             quality |    TP    FP    TN    FN     TPR      TNR      PPV      NPV       F1       TS 
+             ------- | ----- ----- ----- ----- -------- -------- -------- -------- -------- --------
+                   0 |   520     0  1040     0  100.00%  100.00%  100.00%  100.00%  100.00%  100.00%
+                   1 |   520     0  1040     0  100.00%  100.00%  100.00%  100.00%  100.00%  100.00%
+                   2 |   520     0  1040     0  100.00%  100.00%  100.00%  100.00%  100.00%  100.00%
+
+    Validation Accuracy by Class:
+             quality |    TP    FP    TN    FN     TPR      TNR      PPV      NPV       F1       TS 
+             ------- | ----- ----- ----- ----- -------- -------- -------- -------- -------- --------
+                   0 |   177    35   413    47   79.02%   92.19%   83.49%   89.78%   81.19%   68.34%
+                   1 |   176    47   401    48   78.57%   89.51%   78.92%   89.31%   78.75%   64.94%
+                   2 |   220    17   431     4   98.21%   96.21%   92.83%   99.08%   95.44%   91.29%
+
+    Attribute Ranking:
+                                      Feature | Relative Importance
+                                      alcohol :   0.2565
+                                    sulphates :   0.1203
+                             volatile acidity :   0.0820
+                         total sulfur dioxide :   0.0789
+                                fixed acidity :   0.0651
+                          free sulfur dioxide :   0.0640
+                                              :   0.0614
+                                           pH :   0.0593
+                                    chlorides :   0.0559
+                                      density :   0.0555
+                               residual sugar :   0.0547
+                                  citric acid :   0.0465
+         
+
+AutoML Summary:
+                                        RF*       NN        DT       SVM   
+                                    -------   -------   -------   -------  
+    Best-guess Accuracy:             33.33%    33.33%    33.33%    33.33%  
+    Training Accuracy:              100.00%    63.91%   100.00%    43.65%  
+    Validation Accuracy:             85.26%    64.28%    67.11%    43.60%  
+    Model Capacity (bits):             130        88       649        14   
+    Gen. Ratio (bits/bit):           19.02     17.94      3.80     77.09   
+    Pct. Data Memorized:             12.50%    13.25%    62.50%     3.08%  
+    Resilience to Noice (db):        -1.08     -1.05     -0.38     -1.69   
+Messages:
+    Defaulted to classification problem.
+    RF chosen as best model out of 4
+    Writing RF predictor file a.py
+
+End Time:           05/03/2022, 23:06 PDT
+Runtime Duration:   53s
